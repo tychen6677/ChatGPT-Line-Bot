@@ -54,7 +54,9 @@ def handle_text_message(event):
     user_id = event.source.user_id
     text = event.message.text.strip()
     logger.info(f'{user_id}: {text}')
-
+    # 
+    model = OpenAIModel(api_key='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')
+    is_successful, _, _ = model.check_token_valid()
     try:
         if text.startswith('/註冊'):
             api_key = text[3:].strip()
